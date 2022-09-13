@@ -4,7 +4,7 @@
 [site]: https://pbp-web-assignment.herokuapp.com
 [PBP assignments]: https://github.com/pbp-fasilkom-ui/assignment-repository
 
-[MVT Diagram]: /static/Django-MVT-Architecture-Diagram.jpg
+[MVT Diagram]: /static/Django-MVT-Architecture.jpg
 
 Link to Site: [Heroku Site]
 

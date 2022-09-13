@@ -122,8 +122,8 @@ The template will require a name, a student id number, and a list of catalog ite
 - Set repository secrets in our GitHub repository.
   - Navigate to `Settings -> Secrets -> Actions`.
   - Create two repository secrets.
-    - `HEROKU_APP_NAME`: <Name of your Heroku app>
-    - `HEROKU_API_KEY`: <Our Heroku API key>
+    - `HEROKU_APP_NAME`: Name of your Heroku app
+    - `HEROKU_API_KEY`: Your Heroku API key
 - Push our changes in the previous steps to trigger the GitHub `dpl.yml` workflow.
 - Alternatively, if our changes have been pushed before setting the secrets, once we set the secrets, go to the `Actions` tab and click on the the failed workflow and select `Run/Re-run all jobs`.
 - Wait until the workflow finish running.

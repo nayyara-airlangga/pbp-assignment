@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ name }}'s Watchlist</h1>
+
+<table>
+  <tr style='font-size: 18px'>
+    <th>Title</th>
+    <th>Rating</th>
+    <th>Release Date (Theaters)</th>
+    <th>Watched</th>
+    <th>Review</th>
+  </tr>
+  {% for item in mywatchlist_items %}
+  <tr>
+    <td>{{ item.title }}</td>
+    <td>{{ item.rating }}</td>
+    <td>{{ item.release_date }}</td>
+    <td>{{ item.watched }}</td>
+    <td>{{ item.review }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content %}

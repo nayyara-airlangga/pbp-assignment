@@ -4,6 +4,10 @@
 
 <h1>{{ name }}'s Watchlist</h1>
 
+{% if watch_status %}
+<h3>{{ watch_status }}</h3>
+{% endif %}
+
 <table>
   <tr style='font-size: 18px'>
     <th>Title</th>

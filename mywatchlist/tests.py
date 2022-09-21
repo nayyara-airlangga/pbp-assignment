@@ -6,6 +6,12 @@ class MyWatchlistTestcase(TestCase):
     def setUp(self):
         self.__client = Client()
 
+    def test_main_view_ok(self):
+        url = reverse('mywatchlist:mywatchlist')
+        res = self.__client.get(url)
+
+        self.assertEqual(res.status_code, 200)
+
     def test_html_view_ok(self):
         url = reverse('mywatchlist:mywatchlist_html')
         res = self.__client.get(url)

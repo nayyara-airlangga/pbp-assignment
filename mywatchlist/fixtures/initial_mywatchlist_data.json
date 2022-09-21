@@ -1,0 +1,112 @@
+[
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 1,
+    "fields": {
+      "watched": true,
+      "title": "The Avengers",
+      "rating": 3,
+      "release_date": "2012-05-04",
+      "review": "The comedic timing, coupled with his ability to maintain the authenticity of the characters, is worthy of praise. The Avengers delivers a popcorn feast that's the perfect summer kickoff."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 2,
+    "fields": {
+      "watched": true,
+      "title": "The Avengers: Age of Ultron",
+      "rating": 2,
+      "release_date": "2015-04-22",
+      "review": "There is little in this film that is new, but that doesn't matter. The characters are still entertaining, the action scenes thrilling and near orgasmic, and the human relationships touching."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 3,
+    "fields": {
+      "watched": true,
+      "title": "Avengers: Infinity War",
+      "rating": 5,
+      "release_date": "2018-04-25",
+      "review": "The conclusion of Infinity War is so shocking because it doesn't feel like a cliffhanger, more like a drastic wiping clean of the slate before the whole cycle starts again, with whatever reversal of fortune or comprehensive reboot it may be."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 4,
+    "fields": {
+      "watched": true,
+      "title": "Avengers: Endgame",
+      "rating": 5,
+      "release_date": "2019-04-24",
+      "review": "Eleven years of Universe building, and this is the crescendo. It really pays off, I've never seen anything quite like it."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 5,
+    "fields": {
+      "watched": true,
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "rating": 3,
+      "release_date": "2001-12-19",
+      "review": "An exceptional big-screen half-term treat."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 6,
+    "fields": {
+      "watched": true,
+      "title": "Harry Potter and the Chamber of Secrets",
+      "rating": 4,
+      "release_date": "2002-11-05",
+      "review": "Harry Potter and the Chamber of Secrets is darker, funnier and finer than its forerunner Harry Potter and the Philosopher's Stone."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 7,
+    "fields": {
+      "watched": false,
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "rating": 5,
+      "release_date": "2004-05-31",
+      "review": "Cuarn's Prisoner of Azkaban, while a touch less faithful to the details of Rowling's oeuvre, captures far better its mood, the constant sense of wondrous discovery and lurking danger."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 8,
+    "fields": {
+      "watched": false,
+      "title": "Harry Potter and the Goblet of Fire - Rotten Tomatoes",
+      "rating": 4,
+      "release_date": "2006-03-07",
+      "review": "For those like me who are outside but sympathetic to the faith, it looks like another handsomely made, good-natured and high-spirited family movie, which is dramatically stymied through being locked within school grounds."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 9,
+    "fields": {
+      "watched": false,
+      "title": "Harry Potter and the Order of the Phoenix",
+      "rating": 4,
+      "release_date": "2007-07-11",
+      "review": "By focusing the story on Harry (a leaner and slightly meaner Daniel Radcliffe) and his exploits, Yates dispenses with many of the novel's subplots and is able to push the story forward, ominously foreshadowing the dark times to come."
+    }
+  },
+  {
+    "model": "mywatchlist.mywatchlist",
+    "pk": 10,
+    "fields": {
+      "watched": false,
+      "title": "Harry Potter and the Half-Blood Prince",
+      "rating": 1,
+      "release_date": "2009-07-15",
+      "review": "I think it's the best of the series, fairly easily, and a testament to why occasionally throwing a massive budget at an endeavor of this scope can be considered a reasonable decision."
+    }
+  }
+]

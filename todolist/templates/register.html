@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Todolist - Register</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="register">
+
+  <h1>Registration Form</h1>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+      <tr>
+        <td></td>
+        <td style="margin-bottom: 10px;"><input type="submit" name="submit" value="Register" /></td>
+      </tr>
+    </table>
+  </form>
+
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  Already have an account? <a href="{% url 'todolist:login' %}">Login</a>
+
+</div>
+
+{% endblock content %}

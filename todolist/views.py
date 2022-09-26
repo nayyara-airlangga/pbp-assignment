@@ -7,10 +7,33 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
 
+from todolist.forms import CreateTaskForm
+from todolist.models import Task
+
 # Create your views here.
 @login_required(login_url='/todolist/login')
 def todolist(request):
-    return render(request, 'todolist.html', context={})
+    tasks = Task.objects.filter(user=request.user.pk)
+
+    return render(
+        request, 'todolist.html', context={'user': request.user, 'tasks': tasks}
+    )
+
+
+@login_required(login_url='/todolist/login')
+def create_task(request):
+    form = CreateTaskForm()
+
+    if request.method == "POST":
+        form = CreateTaskForm(request.POST)
+
+        if form.is_valid():
+            form.save(request.user.id)
+            messages.success(request, 'Task added successfully!')
+            return redirect('todolist:todolist')
+
+    context = {'form': form}
+    return render(request, 'create-task.html', context)
 
 
 def register(request):

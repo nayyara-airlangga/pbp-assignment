@@ -5,4 +5,32 @@
 {% endblock meta %}
 
 {% block content %}
+
+<h1>{{ user.username }}'s Tasks</h1>
+<a href="{% url 'todolist:create_task' %}"><button>New Task</button></a></td>
+<a href="{% url 'todolist:logout' %}"><button>Logout</button></a></td>
+
+<table style="margin-top: 20px; text-align: center;">  
+  <tr style="font-size: 18px;">
+    <th>Title</th>
+    <th>Created At</th>
+    <th>Description</th>
+  </tr>
+  {% for task in tasks %}
+  <tr style="text-align: left;">
+    <td>{{ task.title }}</td>
+    <td>{{ task.date }}</td>
+    <td>{{ task.description }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
 {% endblock content %}

@@ -5,4 +5,4 @@ from todolist.models import Task
 # Register your models here.
 @admin.register(Task)
 class TodolistAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'date', 'description', 'user')

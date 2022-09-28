@@ -15,12 +15,26 @@
     <th>Title</th>
     <th>Created At</th>
     <th>Description</th>
+    <th>Status</th>
   </tr>
   {% for task in tasks %}
   <tr style="text-align: left;">
     <td>{{ task.title }}</td>
     <td>{{ task.date }}</td>
     <td>{{ task.description }}</td>
+    <td>
+      {% if task.is_finished%}
+      Finished
+      {% else %}
+      Not Finished
+      {% endif %}
+    </td>
+    <td>
+      <form method="POST" action="{% url 'todolist:update_status' id=task.id %}">
+        {% csrf_token %}
+        <button type="submit">Update</button>
+      </form>
+    </td>
   </tr>
   {% endfor %}
 </table>

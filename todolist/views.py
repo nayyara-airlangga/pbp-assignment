@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseNotFound
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib import messages
@@ -11,6 +12,24 @@ from todolist.forms import CreateTaskForm
 from todolist.models import Task
 
 # Create your views here.
+@login_required(login_url='/todolist/login')
+def update_status(request, id):
+    if request.method == "POST":
+        if Task.objects.get(pk=id) is None:
+            return HttpResponseNotFound("<h1>Task not found</h1>")
+
+        task: Task = Task.objects.get(pk=id)
+        Task.objects.filter(pk=id).update(is_finished=not task.is_finished)
+
+        messages.success(request, f"Updated task status of task {id}")
+        return redirect("todolist:todolist")
+
+    res = HttpResponse("<h1>Method not allowed</h1>")
+    res.status_code = 405
+
+    return res
+
+
 @login_required(login_url='/todolist/login')
 def todolist(request):
     tasks = Task.objects.filter(user=request.user.pk)

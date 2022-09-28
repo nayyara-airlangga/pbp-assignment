@@ -32,7 +32,13 @@
     <td>
       <form method="POST" action="{% url 'todolist:update_status' id=task.id %}">
         {% csrf_token %}
-        <button type="submit">Update</button>
+        <button type="submit">Change Status</button>
+      </form>
+    </td>
+    <td>
+      <form method="POST" action="{% url 'todolist:delete_task' id=task.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
       </form>
     </td>
   </tr>

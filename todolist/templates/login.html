@@ -6,28 +6,18 @@
 
 {% block content %}
 
-<div class="login">
+<div class="base">
+  <form class="form center" method="POST" action="">
+  {% csrf_token %}
+    <h1 class="form-header">Sign In</h1>
+    <label for="username">Username</label>
+    <input class="form-input" id="username" type="text" name="username" placeholder="Username" class="form-control">
 
-  <h1>Login Form</h1>
+    <label for="password">Password</label>
+    <input class="form-input" id="password" type="password" name="password" placeholder="Password" class="form-control">
 
-  <form method="POST" action="">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>Username: </td>
-        <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-      </tr>
-
-      <tr>
-        <td>Password: </td>
-        <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td><input class="btn login_btn" type="submit" value="Login"></td>
-      </tr>
-    </table>
+    <button class="btn btn-primary form-btn" type="submit">Login</button>
+    <p class="form-info">Don't have an account? <a href="{% url 'todolist:register' %}">Register</a></p>
   </form>
 
   {% if messages %}
@@ -37,8 +27,6 @@
     {% endfor %}
   </ul>
   {% endif %}
-
-  Don't have an account? <a href="{% url 'todolist:register' %}">Register</a>
 
 </div>
 

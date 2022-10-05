@@ -87,6 +87,12 @@ form {
   flex-direction: column;
   justify-content: start;
   overflow-wrap: break-word;
+  
+  transition: all .4s;
+}
+
+.task:hover {
+  transform: translate(0, -12px);
 }
 
 .task-title {

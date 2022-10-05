@@ -6,25 +6,19 @@
 
 {% block content %}
 
-<div class="logout">
-
-  <h1>Logout</h1>
-
-  {% if user.username %}
-  <p>You are currently logged in as <strong>{{ user.username }}</strong></p>
-  {% else %}
-  <p>You are currently not logged in as anyone</p>
-  {% endif %}
-
-  <form method="POST" action="">
+<div class="base">
+  <form class="form center" method="POST" action="">
     {% csrf_token %}
-    <table>
-      <tr>
-        <td style="padding-bottom: 10px;">Are you sure you want to logout?</td>
-      </tr>
-      <tr>
-        <td><input class="btn logout_btn" type="submit" value="Logout"></td>
-      </tr>
+    <h1 class="form-header">Sign Out</h1>
+    <p class="form-info">
+      {% if user.username %}
+      You are currently logged in as <strong>{{ user.username }}</strong>
+      {% else %}
+      You are currently not logged in as anyone
+      {% endif %}
+    </p>
+    <p class="form-info">Are you sure you want to logout?</p>
+    <button class="btn btn-primary form-btn" type="submit">Logout</button>
     </table>
   </form>
 </div>

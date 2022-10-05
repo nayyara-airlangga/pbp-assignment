@@ -5,20 +5,12 @@
 {% endblock meta %}
 
 {% block content %}
-<div>
-
-<h1>Create new task</h1>
-
-<form method="POST" action="">
+<div class="base">
+  <form class="form center" method="POST" action="">
   {% csrf_token %}
-  <table>
+    <h1 class="form-header">Create New Task</h1>
     {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td style="margin-bottom: 10px;"><input type="submit" name="submit" value="Create" /></td>
-    </tr>
-  </table>
-</form>
-
+    <button class="btn btn-primary form-btn" type="submit" name="submit">Create</button>
+  </form>
 </div>
 {% endblock content %}

@@ -6,9 +6,23 @@
 
 {% block content %}
 
-<h1>{{ user.username }}'s Tasks</h1>
-<a href="{% url 'todolist:create_task' %}"><button>New Task</button></a></td>
-<a href="{% url 'todolist:logout' %}"><button>Logout</button></a></td>
+<!-- Modification from the official bootstrap site -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <h1 class="navbar-brand">{{ user.username }}</h1>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="justify-content-end collapse navbar-collapse" id="navbar-content">
+      <ul class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'todolist:create_task' %}">New Task</a>
+        <a class="nav-item nav-link" href="{% url 'todolist:logout' %}">Logout</a>
+      <ul>
+    </div>
+  </div>
+</nav>
+
+<div class="base">
 
 <table style="margin-top: 20px; text-align: center;">  
   <tr style="font-size: 18px;">
@@ -52,5 +66,7 @@
     {% endfor %}
   </ul>
 {% endif %}
+
+</div>
 
 {% endblock content %}

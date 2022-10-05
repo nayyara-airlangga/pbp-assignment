@@ -6,31 +6,22 @@
 
 {% block content %}
 
-<div class="register">
-
-  <h1>Registration Form</h1>
-
-  <form method="POST" action="">
+<div class="base">
+  <form class="form center" method="POST" action="">
     {% csrf_token %}
-    <table>
+    <h1 class="form-header">Register</h1>
       {{ form.as_table }}
-      <tr>
-        <td></td>
-        <td style="margin-bottom: 10px;"><input type="submit" name="submit" value="Register" /></td>
-      </tr>
-    </table>
+    <button class="btn btn-primary form-btn" type="submit" name="submit">Register</button>
+    <p class="form-info">Already have an account? <a href="{% url 'todolist:login' %}">Login</a></p>
+
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+        <li class="form-info">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </form>
-
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-
-  Already have an account? <a href="{% url 'todolist:login' %}">Login</a>
-
 </div>
 
 {% endblock content %}

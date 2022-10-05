@@ -22,51 +22,33 @@
   </div>
 </nav>
 
-<div class="base">
-
-<table style="margin-top: 20px; text-align: center;">  
-  <tr style="font-size: 18px;">
-    <th>Title</th>
-    <th>Created At</th>
-    <th>Description</th>
-    <th>Status</th>
-  </tr>
+<div class="todolist">
+  {% if messages %}
+  {% endif %}
   {% for task in tasks %}
-  <tr style="text-align: left;">
-    <td>{{ task.title }}</td>
-    <td>{{ task.date }}</td>
-    <td>{{ task.description }}</td>
-    <td>
+  <div class="task col">
+    <h1 class="card-title task-title">{{ task.title }}</td>
+    <p class="card-subtitle task-details">{{ task.date }}</td>
+    <p class="card-text task-details">{{ task.description }}</td>
+    <p class="card-text task-details">
       {% if task.is_finished%}
       Finished
       {% else %}
       Not Finished
       {% endif %}
-    </td>
-    <td>
-      <form method="POST" action="{% url 'todolist:update_status' id=task.id %}">
+    </p>
+      <form class="task-btn" method="POST" action="{% url 'todolist:update_status' id=task.id %}">
         {% csrf_token %}
-        <button type="submit">Change Status</button>
+        <button class="btn btn-primary" type="submit">Change Status</button>
+      </form>
+    <td>
+      <form class="task-btn" method="POST" action="{% url 'todolist:delete_task' id=task.id %}">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit">Delete</button>
       </form>
     </td>
-    <td>
-      <form method="POST" action="{% url 'todolist:delete_task' id=task.id %}">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-      </form>
-    </td>
-  </tr>
+  </div>
   {% endfor %}
-</table>
-
-{% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-{% endif %}
-
 </div>
 
 {% endblock content %}

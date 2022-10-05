@@ -48,6 +48,7 @@
 .form-btn {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+  width: 100%;
 }
 
 form {
@@ -61,4 +62,46 @@ form {
 
 /* Todolist */
 
+.todolist {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.todolist > .task {
+  margin: 15px;
+}
+
+.task {
+  border-radius: 5%;
+  border-width: 1px;
+  border-color: gray;
+  border-style: solid;
+  padding: 15px;
+  min-width: 320px;
+  max-width: 400px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  overflow-wrap: break-word;
+}
+
+.task-title {
+  font-size: 2rem;
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.task-details {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.task-btn {
+  margin-top: 0.75rem;
+  width: 100%;
+}

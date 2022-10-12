@@ -5,6 +5,7 @@ from todolist.views import (
     delete_task,
     register,
     todolist,
+    todolist_json,
     update_status,
     user_login,
     user_logout,
@@ -14,6 +15,7 @@ from todolist.views import (
 app_name = 'todolist'
 urlpatterns = [
     path('', todolist, name='todolist'),
+    path('json', todolist_json, name='todolist_json'),
     path('register/', register, name='register'),
     path('login/', user_login, name='login'),
     path('logout/', user_logout, name='logout'),

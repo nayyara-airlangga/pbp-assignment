@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
+from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render
@@ -45,6 +46,15 @@ def update_status(request, id):
     res.status_code = 405
 
     return res
+
+
+@login_required(login_url='/todolist/login')
+def todolist_json(request):
+    tasks = Task.objects.filter(user=request.user.pk)
+
+    return HttpResponse(
+        serializers.serialize('json', tasks), content_type='application/json'
+    )
 
 
 @login_required(login_url='/todolist/login')

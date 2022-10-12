@@ -22,33 +22,7 @@
   </div>
 </nav>
 
-<div class="todolist">
-  {% if messages %}
-  {% endif %}
-  {% for task in tasks %}
-  <div class="task col">
-    <h1 class="card-title task-title">{{ task.title }}</td>
-    <p class="card-subtitle task-details">{{ task.date }}</td>
-    <p class="card-text task-details">{{ task.description }}</td>
-    <p class="card-text task-details">
-      {% if task.is_finished%}
-      Finished
-      {% else %}
-      Not Finished
-      {% endif %}
-    </p>
-      <form class="task-btn" method="POST" action="{% url 'todolist:update_status' id=task.id %}">
-        {% csrf_token %}
-        <button class="btn btn-primary" type="submit">Change Status</button>
-      </form>
-    <td>
-      <form class="task-btn" method="POST" action="{% url 'todolist:delete_task' id=task.id %}">
-        {% csrf_token %}
-        <button class="btn btn-primary" type="submit">Delete</button>
-      </form>
-    </td>
-  </div>
-  {% endfor %}
+<div id="todolist" class="todolist"> 
 </div>
 
 {% endblock content %}

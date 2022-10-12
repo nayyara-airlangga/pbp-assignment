@@ -70,7 +70,7 @@ const deleteTodolistItem = async (event) => {
   const csrfToken = getCookie('csrftoken')
 
   await fetch("/todolist/delete-task/" + id, {
-    method: 'POST',
+    method: 'DELETE',
     headers: {
       'X-CSRFTOKEN': csrfToken
     }

@@ -15,7 +15,7 @@ from todolist.models import Task
 # Create your views here.
 @login_required(login_url='/todolist/login')
 def delete_task(request, id):
-    if request.method == "POST":
+    if request.method == "DELETE":
         if Task.objects.get(user=request.user, pk=id) is None:
             return HttpResponseNotFound("<h1>Task not found</h1>")
 

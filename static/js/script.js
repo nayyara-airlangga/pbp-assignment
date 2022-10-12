@@ -79,6 +79,31 @@ const deleteTodolistItem = async (event) => {
   await renderTodolist()
 }
 
+const createTask = async (event) => {
+  event.preventDefault()
+
+  const form = new FormData(event.target)
+  let data = {}
+
+  form.forEach((value, key) => {
+    data[key] = value
+  })
+
+  const csrfToken = getCookie('csrftoken')
+
+  await fetch("/todolist/add", {
+    method: 'POST',
+    headers: {
+      'X-CSRFTOKEN': csrfToken
+    },
+    body: JSON.stringify(data)
+  })
+
+  document.getElementById('closeTaskModal').click()
+
+  await renderTodolist()
+}
+
 const renderTodolist = async () => {
   const res = await fetch("/todolist/json")
   const data = await res.json()

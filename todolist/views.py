@@ -1,7 +1,9 @@
+import json
+
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.core import serializers
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotAllowed, HttpResponseNotFound
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib import messages
@@ -64,6 +66,22 @@ def todolist(request):
     return render(
         request, 'todolist.html', context={'user': request.user, 'tasks': tasks}
     )
+
+
+@login_required(login_url='/wishlist/login')
+def add_task(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        Task.objects.create(
+            title=data["title"],
+            description=data["description"],
+            user=request.user,
+        )
+
+        return HttpResponse("Task created")
+
+    return HttpResponseNotAllowed('Incorrect method')
 
 
 @login_required(login_url='/todolist/login')

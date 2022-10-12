@@ -1,6 +1,7 @@
 from django.urls import path
 
 from todolist.views import (
+    add_task,
     create_task,
     delete_task,
     register,
@@ -20,6 +21,7 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('logout/', user_logout, name='logout'),
     path('create-task', create_task, name='create_task'),
+    path('add', add_task, name='add_task'),
     path('update-status/<int:id>', update_status, name='update_status'),
     path('delete-task/<int:id>', delete_task, name='delete_task'),
 ]

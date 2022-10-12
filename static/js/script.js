@@ -100,6 +100,7 @@ const createTask = async (event) => {
   })
 
   document.getElementById('closeTaskModal').click()
+  event.target.reset()
 
   await renderTodolist()
 }

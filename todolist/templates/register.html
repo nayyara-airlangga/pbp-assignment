@@ -13,14 +13,6 @@
       {{ form.as_table }}
     <button class="btn btn-primary form-btn" type="submit" name="submit">Register</button>
     <p class="form-info">Already have an account? <a href="{% url 'todolist:login' %}">Login</a></p>
-
-    {% if messages %}
-      <ul>
-        {% for message in messages %}
-        <li class="form-info">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
   </form>
 </div>
 

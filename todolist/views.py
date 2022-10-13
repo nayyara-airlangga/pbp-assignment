@@ -34,7 +34,7 @@ def delete_task(request, id):
 
 @login_required(login_url='/todolist/login')
 def update_status(request, id):
-    if request.method == "POST":
+    if request.method == "PUT":
         if Task.objects.get(user=request.user, pk=id) is None:
             return HttpResponseNotFound("<h1>Task not found</h1>")
 

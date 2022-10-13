@@ -52,7 +52,7 @@ const updateTodolistStatus = async (event) => {
   const csrfToken = getCookie('csrftoken')
 
   await fetch("/todolist/update-status/" + id, {
-    method: 'POST',
+    method: 'PUT',
     headers: {
       'X-CSRFTOKEN': csrfToken
     }
